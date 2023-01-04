@@ -8,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
-import de.kifo.Main;
 import de.kifo.music.commands.PlayCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -22,10 +21,8 @@ public class AudioLoadResult extends AudioEventAdapter implements AudioLoadResul
 
     private final String url;
     private final MusicController controller;
-    private Guild guild;
-    private static HashMap<Guild, Queue<AudioTrack>> map = new HashMap<>();
-    private static HashMap<Guild, Boolean> runningMap = new HashMap<>();
-    private static boolean next = false;
+    private final Guild guild;
+    public static HashMap<Guild, Queue<AudioTrack>> map = new HashMap<>();
 
     public AudioLoadResult(MusicController controller, String url, Guild guild) {
         this.controller = controller;
@@ -50,7 +47,7 @@ public class AudioLoadResult extends AudioEventAdapter implements AudioLoadResul
         if(controller.getPlayer().getPlayingTrack() == null) {
             nextSong(controller.getPlayer());
         } else {
-            songAdded(controller.getPlayer(), audioTrack);
+            songAdded(audioTrack);
         }
     }
 
@@ -65,7 +62,7 @@ public class AudioLoadResult extends AudioEventAdapter implements AudioLoadResul
         if(controller.getPlayer().getPlayingTrack() == null) {
             nextSong(controller.getPlayer());
         } else {
-            songAdded(controller.getPlayer(), audioPlaylist.getTracks().get(0));
+            songAdded(audioPlaylist.getTracks().get(0));
         }
     }
 
@@ -91,7 +88,6 @@ public class AudioLoadResult extends AudioEventAdapter implements AudioLoadResul
                 throw new RuntimeException(e);
             }
 
-            System.out.println(player.getPlayingTrack());
             if(player.getPlayingTrack() == null) {
                 guild.getAudioManager().closeAudioConnection();
                 guild.getAudioManager().getConnectedChannel().asVoiceChannel().sendMessage("Wegen inaktivität verlasse ich jetzt den Sparchkanal.").queue();
@@ -142,7 +138,7 @@ public class AudioLoadResult extends AudioEventAdapter implements AudioLoadResul
         map.get(guild).poll();
     }
 
-    private void songAdded(AudioPlayer player, AudioTrack track) {
+    private void songAdded(AudioTrack track) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setColor(Color.MAGENTA);
         AudioTrackInfo info = track.getInfo();

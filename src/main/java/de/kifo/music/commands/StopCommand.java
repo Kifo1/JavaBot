@@ -1,8 +1,8 @@
 package de.kifo.music.commands;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
-import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import de.kifo.Main;
+import de.kifo.music.AudioLoadResult;
 import de.kifo.music.MusicController;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
@@ -30,6 +30,7 @@ public class StopCommand extends ListenerAdapter {
                 AudioManager manager = vc.getGuild().getAudioManager();
                 AudioPlayer player = controller.getPlayer();
 
+                AudioLoadResult.map.get(event.getGuild()).clear();
                 player.stopTrack();
                 manager.closeAudioConnection();
                 event.getMessage().addReaction(Emoji.fromFormatted("U+1F44C")).queue();

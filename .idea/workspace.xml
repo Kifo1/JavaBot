@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69c77520-5d36-493a-933a-b0e88f110f1e" name="Changes" comment="First Event">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/commands/Invite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/commands/UserInfoCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/AudioLoadResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/AudioPlayerSendHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/MusicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/PlayerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/TrackScheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/PlayCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/SkipCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/StopCommand.java" afterDir="false" />
+    <list default="true" id="69c77520-5d36-493a-933a-b0e88f110f1e" name="Changes" comment="JavaBot music">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaBot" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/events/HelloEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/events/HelloEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/commands/Invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/commands/Invite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/commands/UserInfoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/music/AudioLoadResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/AudioLoadResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/music/MusicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/MusicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/PlayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/PlayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/SkipCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/SkipCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/StopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/kifo/music/commands/StopCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +48,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Developement/Workspace IntelliJ/CobbleFarmer&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/Developement/Workspace IntelliJ/CobbleFarmer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -71,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672659796446</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="JavaBot music">
+      <created>1672698907030</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672698907030</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +91,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Event" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Event" />
+    <MESSAGE value="JavaBot music" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaBot music" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

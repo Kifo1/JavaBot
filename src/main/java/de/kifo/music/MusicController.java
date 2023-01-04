@@ -6,8 +6,8 @@ import net.dv8tion.jda.api.entities.Guild;
 
 public class MusicController {
 
-    private Guild guild;
-    private AudioPlayer player;
+    private final Guild guild;
+    private final AudioPlayer player;
 
     public MusicController(Guild guild) {
         this.guild = guild;
@@ -16,6 +16,7 @@ public class MusicController {
         this.guild.getAudioManager().setSendingHandler(new AudioPlayerSendHandler(player));
         this.player.addListener(new AudioLoadResult(this.guild));
         this.player.setVolume(10);
+        this.player.setFrameBufferDuration(1000000000);
     }
 
     public AudioPlayer getPlayer() {

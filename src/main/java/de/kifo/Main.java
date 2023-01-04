@@ -4,16 +4,15 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import de.kifo.commands.Invite;
-import de.kifo.commands.UserInfoCommand;
-import de.kifo.events.HelloEvent;
 import de.kifo.music.PlayerManager;
 import de.kifo.music.commands.PlayCommand;
 import de.kifo.music.commands.SkipCommand;
 import de.kifo.music.commands.StopCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+
 
 public class Main {
 
@@ -24,7 +23,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-
         audioPlayerManager = new DefaultAudioPlayerManager();
 
         jda = JDABuilder.createDefault("MTA1OTQzMTY0NDA4MTE3MjQ4MQ.G387y1.UOe97vGVPgjJ4LeuOCRJOEa6U0h77jeN21pBBk")
@@ -32,16 +30,16 @@ public class Main {
                 .enableIntents(GatewayIntent.GUILD_PRESENCES)
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
                 .build();
+        jda.getPresence().setActivity(Activity.playing("Version: 1.0.0"));
 
         AudioSourceManagers.registerRemoteSources(audioPlayerManager);
         audioPlayerManager.getConfiguration().setFilterHotSwapEnabled(true);
 
         //Events
-        jda.addEventListener(new HelloEvent());
+        //jda.addEventListener(new HelloEvent());
 
         //Commands
         jda.addEventListener(new Invite());
-        jda.addEventListener(new UserInfoCommand());
         jda.addEventListener(new PlayCommand());
         jda.addEventListener(new StopCommand());
         jda.addEventListener(new SkipCommand());

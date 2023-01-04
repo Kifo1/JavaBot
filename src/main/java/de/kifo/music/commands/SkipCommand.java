@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.managers.AudioManager;
 
 public class SkipCommand extends ListenerAdapter {
 
@@ -25,7 +24,6 @@ public class SkipCommand extends ListenerAdapter {
 
             if(vc != null) {
                 MusicController controller = Main.getInstance().playerManager.getController(vc.getGuild().getIdLong());
-                AudioManager manager = vc.getGuild().getAudioManager();
                 AudioPlayer player = controller.getPlayer();
 
                 player.stopTrack();

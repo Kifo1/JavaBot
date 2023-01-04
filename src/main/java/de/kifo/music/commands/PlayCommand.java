@@ -72,7 +72,7 @@ public class PlayCommand extends ListenerAdapter {
 
         } else {
             EmbedBuilder builder = new EmbedBuilder();
-            builder.setDescription("Bitte benutze !play <url/search query>");
+            builder.setDescription("Bitte benutze !play <Url/Schlagwörter>");
             builder.setColor(Color.MAGENTA);
             event.getChannel().sendMessageEmbeds(builder.build()).queue();
         }
