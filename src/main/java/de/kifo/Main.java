@@ -3,11 +3,10 @@ package de.kifo;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
-import de.kifo.commands.Invite;
+import de.kifo.commands.types.CommandManager;
+import de.kifo.database.DataConnection;
+import de.kifo.listener.MessageListener;
 import de.kifo.music.PlayerManager;
-import de.kifo.music.commands.PlayCommand;
-import de.kifo.music.commands.SkipCommand;
-import de.kifo.music.commands.StopCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -20,6 +19,8 @@ public class Main {
     private static Main instance;
     private static JDA jda;
     public PlayerManager playerManager;
+    private DataConnection dataConnection;
+    private CommandManager commandManager;
 
 
     public static void main(String[] args) {
@@ -29,20 +30,14 @@ public class Main {
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .enableIntents(GatewayIntent.GUILD_PRESENCES)
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
+                .setActivity(Activity.playing("Version: 1.0.0"))
                 .build();
-        jda.getPresence().setActivity(Activity.playing("Version: 1.0.0"));
 
         AudioSourceManagers.registerRemoteSources(audioPlayerManager);
         audioPlayerManager.getConfiguration().setFilterHotSwapEnabled(true);
 
         //Events
-        //jda.addEventListener(new HelloEvent());
-
-        //Commands
-        jda.addEventListener(new Invite());
-        jda.addEventListener(new PlayCommand());
-        jda.addEventListener(new StopCommand());
-        jda.addEventListener(new SkipCommand());
+        jda.addEventListener(new MessageListener());
 
         new Main();
     }
@@ -50,7 +45,9 @@ public class Main {
     public Main() {
         instance = this;
 
+        this.commandManager = new CommandManager();
         this.playerManager = new PlayerManager();
+        this.dataConnection = new DataConnection();
     }
 
     public static Main getInstance() {
@@ -67,5 +64,13 @@ public class Main {
 
     public PlayerManager getPlayerManager() {
         return playerManager;
+    }
+
+    public DataConnection getDataConnection() {
+        return dataConnection;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 }
